@@ -1,7 +1,3 @@
-resource "aws_timestreamwrite_database" "ilia" {
-  database_name = "database-ilia"
-}
-
 resource "kubernetes_namespace" "grafana" {
   metadata {
     name = local.grafana_namespace

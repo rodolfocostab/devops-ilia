@@ -6,7 +6,7 @@ module "eks" {
   cluster_version = "1.27"
 
   cluster_endpoint_private_access = true
-  cluster_endpoint_public_access  = true
+  cluster_endpoint_public_access  = false
 
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
@@ -50,6 +50,15 @@ module "eks" {
       capacity_type  = "SPOT"
     }
   }
+
+  # manage_aws_auth_configmap = true
+  # aws_auth_roles = [
+  #   {
+  #     rolearn  = module.eks_admins_iam_role.iam_role_arn
+  #     username = module.eks_admins_iam_role.iam_role_name
+  #     groups   = ["system:masters"]
+  #   },
+  # ]
 
   tags = {
     Environment = "ilia"
