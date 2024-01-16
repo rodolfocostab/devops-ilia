@@ -30,10 +30,3 @@ jobs:
       - name: AWS Configure EKS
         run: |
           aws eks update-kubeconfig --region us-east-1 --name ilia-eks
-
-      - name: 'Deploy Prometheus'
-        uses: 'deliverybot/helm@v1'
-        with:
-          release: 'prometheus'
-          namespace: 'default'
-          chart: 'prometheus-community/kube-prometheus-stack'
