@@ -22,13 +22,17 @@ Executar comandos:
 Apos lancamento se desejar ativar as configuracoes do IAM ja criadas, descomentar da linha 54 a 61 no arquivo terraform-aws-eks\eks.tf e
 descomentar da linha 21 a 50 no arquivo devops-ilia\terraform-aws-eks\provider.tf
 
-Descomentar o arquivo autoscaler.tf para realziar deploy do mesmo
+## Instalacao do Cluster Autoscaler no EKS {Ja Lancado no passo anterior} - Segundo passo
+
+Descomentar o arquivo devops-ilia\terraform-aws-eks\autoscaler.tf para realziar deploy do mesmo
 
 Executar comando novamente:
 
 ```terraform init ```
 
 ```terraform apply ```
+
+Tenho consentimento que fluxo pode ser melhorado usando um Worklow ou Depends On por Modulos.
 
 ## Instalacao Grafana no EKS - Terceiro passo
 
