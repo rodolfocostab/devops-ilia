@@ -20,24 +20,24 @@ jobs:
   Explore-AWS-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Configure AWS Credentials
+      - name: Configure AWS Credentials "🐧
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-      - name: AWS Configure EKS
+      - name: AWS Configure EKS "🖥️
         run: |
           aws eks update-kubeconfig --region us-east-1 --name ilia-eks
 
-      - name: Install Helm 
+      - name: Install Helm "🔎
         run: |
           curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
           chmod 700 get_helm.sh
           ./get_helm.sh
 
-      - name: Install Helm 
+      - name: Deploy Prometheus by Helm "🎉
         run: |
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
           helm install prometheus prometheus-community/kube-prometheus-stack
