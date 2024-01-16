@@ -20,7 +20,7 @@ Executar comandos:
 ```terraform apply ```
 
 Apos lancamento se desejar ativar as configuracoes do IAM ja criadas, descomentar da linha 54 a 61 no arquivo terraform-aws-eks\eks.tf e
-descomentar da linha 29 a 50 no arquivo devops-ilia\terraform-aws-eks\provider.tf
+descomentar da linha 21 a 50 no arquivo devops-ilia\terraform-aws-eks\provider.tf
 
 Descomentar o arquivo autoscaler.tf para realziar deploy do mesmo
 
