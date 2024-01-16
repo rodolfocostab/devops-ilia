@@ -40,4 +40,4 @@ jobs:
       - name: Deploy Prometheus by Helm "🎉
         run: |
           helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
-          helm install prometheus prometheus-community/kube-prometheus-stack
+          helm upgrade --install prometheus prometheus-community/kube-prometheus-stack
