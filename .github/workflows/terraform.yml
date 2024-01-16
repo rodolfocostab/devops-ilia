@@ -1,18 +1,18 @@
-name: GitHub Actions Terraform
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [push]
-jobs:
-    Explore-AWS-GitHub-Actions:
-        runs-on: ubuntu-latest
-        steps:
-            - name: Configure AWS Credentials
-            uses: aws-actions/configure-aws-credentials@v4
-            with:
-                aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-                aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+# name: GitHub Actions Terraform
+# run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+# on: [push]
+# jobs:
+#     Explore-AWS-GitHub-Actions:
+#         runs-on: ubuntu-latest
+#         steps:
+#             - name: Configure AWS Credentials
+#             uses: aws-actions/configure-aws-credentials@v4
+#             with:
+#                 aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+#                 aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-            - name: Create Plan Run
-              uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
-              id: plan-run
-              with:
-                plan_only: true
+#             - name: Create Plan Run
+#               uses: hashicorp/tfc-workflows-github/actions/create-run@v1.0.0
+#               id: plan-run
+#               with:
+#                 plan_only: true
