@@ -12,6 +12,7 @@ module "cluster_autoscaler_irsa_role" {
       namespace_service_accounts = ["kube-system:cluster-autoscaler"]
     }
   }
+  depends_on = [module.eks]
 }
 
 resource "kubectl_manifest" "service_account" {
@@ -27,6 +28,7 @@ metadata:
   annotations:
     eks.amazonaws.com/role-arn: ${module.cluster_autoscaler_irsa_role.iam_role_arn}
 EOF
+  depends_on = [module.eks]
 }
 
 resource "kubectl_manifest" "role" {
@@ -48,6 +50,7 @@ rules:
     resourceNames: ["cluster-autoscaler-status", "cluster-autoscaler-priority-expander"]
     verbs: ["delete", "get", "update", "watch"]
 EOF
+  depends_on = [module.eks]
 }
 
 resource "kubectl_manifest" "role_binding" {
@@ -69,6 +72,7 @@ subjects:
     name: cluster-autoscaler
     namespace: kube-system
 EOF
+  depends_on = [module.eks]
 }
 
 resource "kubectl_manifest" "cluster_role" {
@@ -129,6 +133,7 @@ rules:
     resources: ["leases"]
     verbs: ["get", "update"]
 EOF
+  depends_on = [module.eks]
 }
 
 resource "kubectl_manifest" "cluster_role_binding" {
@@ -149,6 +154,7 @@ subjects:
     name: cluster-autoscaler
     namespace: kube-system
 EOF
+  depends_on = [module.eks]
 }
 
 resource "kubectl_manifest" "deployment" {
@@ -203,4 +209,5 @@ spec:
           hostPath:
             path: "/etc/ssl/certs/ca-bundle.crt"
 EOF
+  depends_on = [module.eks]
 }

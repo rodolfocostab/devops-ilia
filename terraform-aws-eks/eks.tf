@@ -2,7 +2,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "19.21.0"
 
-  cluster_name    = "ilia-eks"
+  cluster_name    = local.cluster_name
   cluster_version = "1.27"
 
   cluster_endpoint_private_access = true
