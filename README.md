@@ -19,7 +19,7 @@ Executar comandos:
 
 ```terraform apply ```
 
-Apos lancamento se desejar ativar as configuracoes do IAM ja criadas descomentar da linha 54 a 61 no arquivo terraform-aws-eks\eks.tf
+Apos lancamento se desejar ativar as configuracoes do IAM ja criadas, descomentar da linha 54 a 61 no arquivo terraform-aws-eks\eks.tf
 
 Executar comando novamente:
 
